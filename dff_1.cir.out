@@ -1,0 +1,17 @@
+* c:\fossee\esim\library\subcircuitlibrary\dff_1\dff_1.cir
+
+m1  /vin /din net-_m1-pad3_ /vin mosfet_p
+m5  /vin net-_m1-pad3_ /vout /vin mosfet_p
+m2  net-_m1-pad3_ /clk net-_m2-pad3_ gnd mosfet_n
+m3  net-_m2-pad3_ /din gnd gnd mosfet_n
+m4  /vout net-_m2-pad3_ gnd gnd mosfet_n
+* u1  /din /clk /vin /vout port
+.tran 0e-00 0e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
